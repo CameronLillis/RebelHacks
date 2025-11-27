@@ -21,14 +21,7 @@ export default function Home() {
 
   return (
     <div>
-    <div>
       <button onClick={fetchData}>AAAA</button>
     </div>
-
-    <div>
-      <a href="/FAQ"> FAQ </a>
-    </div>
-    </div>
-
   );
 }
