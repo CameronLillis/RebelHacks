@@ -2,16 +2,19 @@
 import styles from './faq.module.css'
 import { useState } from 'react'
 
-interface Question {
-  question: string;
-  answer: string;
-}
+
 
 // TODO:
 // - Move the accordion logic/structure into a separate component
 // - Simplify the logic of the toggle function make it adaptable/easily changeable
 // - Fill out the faq.module.css to deal with more custom stuff related to my page
 // - Reduce the logic in the page mostly simple tailwind and html
+
+
+interface Question {
+  question: string;
+  answer: string;
+}
 
 
 const faqQuestions: Question[] = [
@@ -44,9 +47,9 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-start justify-center w-full bg-[#111435] p-4 pt-24">
 
-      <div className={`w-full max-w-2xl bg-[#111435]/70 border border-[#FEA70A]/40 rounded-xl ${styles['shadow-border']} overflow-hidden`}>
+      <div className={`w-full max-w-2xl bg-[#111435] border border-[#FEA70A]/40 rounded-xl overflow-hidden`}>
 
-        <div className="md:text-5xl md:py-8 text-center text-[#FEA70A] border-[#FEA70A]/20 text-3xl font-extrabold py-6 border-b drop-shadow-[0_0_10px_#FEA70A80]">
+        <div className="text-4xl text-center text-[#FEA70A] border-[#FEA70A]/20 font-bold py-6 border-b">
           Frequently Asked Questions
         </div>
 
@@ -55,23 +58,23 @@ export default function Home() {
 
             <button
               onClick={() => handleToggle(i)}
-              className="flex items-center w-full text-left hover:bg-[#1a1f4d]/60 p-4 "
+              className="flex items-center w-full text-left hover:bg-[#1a1f4d] p-4 "
             >
               <div className="flex-1 font-bold text-[#FEA70A]">
                 {q.question}
               </div>
 
-              <div
-                className={`transform rotate-45 shrink-0 border-[#FEA70A] w-4 h-4 ${
-                  openIndex === i
-                    ? "bg-[#FEA70A]/10 border-2"
-                    : "border-r-2 border-b-2 -translate-y-1"
-                }`}
-              />
+              <div className="w-4 h-4 shrink-0">
+                {openIndex === i ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className={styles.chevronIcon} viewBox="0 0 512 512"><path d="M112 328l144-144 144 144"/></svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className={styles.chevronIcon} viewBox="0 0 512 512"><path d="M112 184l144 144 144-144"/></svg>
+                )}
+              </div>
             </button>
 
             {openIndex === i && (
-              <p className="text-[#e8e8e8] p-4 pt-0">
+              <p className="p-4 pt-0">
                 {q.answer}
               </p>
             )}

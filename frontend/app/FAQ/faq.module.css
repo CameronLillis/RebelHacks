@@ -2,3 +2,12 @@
   box-shadow: 0 0 10px #FEA70A;
 }
 
+.chevronIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+  stroke-width: 48;
+  stroke: #FEA70A;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
