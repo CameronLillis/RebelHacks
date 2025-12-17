@@ -15,3 +15,11 @@
   stroke-linejoin: round;
   fill: none;
 }
+
+.accordionCard {
+  width: 100%;
+  max-width: 42rem; /* This is the equivalent of max-w-2xl */
+  border: 1px solid color-mix(in srgb, var(--primary), transparent 50%);
+  border-radius: 0.75rem; /* This is the equivalent of rounded-xl */
+  overflow: hidden;
+}

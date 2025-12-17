@@ -1,6 +1,4 @@
 'use client'
-import styles from './faq.module.css'
-import { useState } from 'react'
 import Accordion from './Accordion';
 
 
@@ -17,6 +15,9 @@ interface Question {
 
 // DONE:
 // - Move the accordion logic/structure into a separate component
+// - Toggle added to accordion
+// - Reduced the tailwind used.
+
 
 const faqQuestions: Question[] = [
   {
@@ -39,8 +40,8 @@ const faqQuestions: Question[] = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-start justify-center w-full bg-[#111435] p-4 pt-24">
-      <Accordion items={faqQuestions} allowMultiple={true} />
+    <div className="flex min-h-screen items-start justify-center bg-[#111435] p-4">
+      <Accordion questions={faqQuestions} allowMultiple={true} />
     </div>
   );
 }
