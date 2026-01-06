@@ -20,12 +20,30 @@ export default function Header() {
           >
             About
           </a>
-          <a
+          {/* <a
             href="#sponsor"
             className="no-underline text-[0.95rem] text-white hover:opacity-80"
           >
             Sponsor Us!
-          </a>
+          </a> */}
+
+          <button
+            id="login"
+            className="py-2 px-6  bg-transparent text-white font-semibold cursor-pointer"
+          >
+            <Link href="#">Login</Link>
+          </button>
+          <button
+            id="register"
+            className="py-2 px-6  bg-[#FEA70A] rounded-xl text-white font-semibold cursor-pointer"
+          >
+            <Link href="#">Register</Link>
+          </button>
+        </nav>
+        <div
+          id="social"
+          className="flex gap-4 absolute right-12 top-1/2 -translate-y-1/2"
+        >
           <button className="border-0 text-[1.2rem] text-white cursor-pointer bg-transparent">
             <Image
               src="/images/discord-white-icon.png"
@@ -33,23 +51,6 @@ export default function Header() {
               width={36}
               height={26}
             />
-          </button>
-        </nav>
-        <div
-          id="loginRegister"
-          className="flex gap-4 absolute right-12 top-1/2 -translate-y-1/2"
-        >
-          <button
-            id="loginButton"
-            className="py-2 px-6 border-2 border-[#00c8ff] rounded-xl bg-transparent text-white font-semibold cursor-pointer"
-          >
-            <Link href="#">Login</Link>
-          </button>
-          <button
-            id="register"
-            className="py-2 px-6 border-2 border-[#FEA70A] rounded-xl bg-transparent text-white font-semibold cursor-pointer"
-          >
-            <Link href="#">Register</Link>
           </button>
         </div>
       </header>

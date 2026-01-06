@@ -1,9 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+
 import axios from "axios";
-import "./styles.css";
 import { useState } from "react";
+
+import "./styles.css";
 import Header from "./components/ui/Header";
 import Faq from "./components/ui/FAQ/faq";
 
@@ -25,6 +28,7 @@ export default function Home() {
   return (
     <>
       <main>
+        {/* Background graident is broken on ultrawide resolution */}
         <section id="home" className="hero-section">
           <Header />
           <div className="hero-wrapper">
@@ -39,6 +43,7 @@ export default function Home() {
               </p>
 
               <p className="hero-date">FRI & SAT February 20–21, 2026</p>
+            
             </div>
 
             <div className="hero-image-wrapper">
