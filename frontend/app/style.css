@@ -2,18 +2,18 @@
   scroll-behavior: smooth;
 }
 
+/* 
 section,
 div {
   border: 1px solid red;
-}
+} */
 
 /* HERO SECTION */
 .hero-section {
   min-height: 100vh;
   width: 100%;
-
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  place-items: center;
 
   background-image: radial-gradient(
     1000px circle at center,
@@ -26,7 +26,7 @@ div {
 }
 
 /* HEADER FLOATING */
-.hero-section header {
+header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,31 +38,40 @@ div {
   width: 100%;
 }
 
-.hero-section nav {
+nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem; /* gap-8 */
+  gap: 2rem;
   background-color: #121639;
-  padding: 0.75rem 2rem; /* py-3 px-8 */
+  padding: 0.75rem 2rem;
   border-radius: 30px;
 }
 
 /* HERO CONTENT WRAPPER */
 .hero-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 3rem;
-
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 30rem auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 60px;
 }
 
 /* LEFT TEXT */
 .hero-title {
-  max-width: 420px;
+  grid-column: 1;
+  justify-self: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.title-org,
+.title-school {
+  line-height: 1.1; /* or 1.15 if you want more air */
+  margin: 0;
 }
 
 /* TITLES */
@@ -70,7 +79,6 @@ div {
   font-size: 72px;
   font-weight: 700;
   color: #df4c21;
-  margin: 0;
   -webkit-text-stroke: 2px #fea70a;
 }
 
@@ -78,29 +86,36 @@ div {
   font-size: 72px;
   font-weight: 700;
   color: #007083;
-  margin-top: -1rem;
   -webkit-text-stroke: 2px #b0f2fe;
 }
 
 /* TEXT */
 .hero-description {
-  margin-top: 1.5rem;
   font-weight: 600;
   color: #e99806;
+  width: 350px;
 }
 
 .hero-date {
-  margin-top: 1rem;
   font-size: 20px;
   color: #00d0f3;
 }
-
-.hero-image {
-  max-width: 580px;
-  height: auto;
+.hero-image-wrapper-whole {
+  grid-column: 3;
+  justify-self: center;
 }
 
-/* max-width used since developing from desktop first */
+@media screen {
+  /* Mobile Elements (Hidden) */
+  .hero-image-wrapper-parts {
+    display: none;
+  }
+  .vegas-sign {
+    display: none;
+  }
+}
+
+/* Desktop Size */
 @media (max-width: 1536px) {
 }
 
@@ -108,31 +123,29 @@ div {
 }
 
 @media (max-width: 1024px) {
-  .hero-title {
-    max-width: 1024px;
-  }
 }
 
-/* Tablets */
+/* Transition between Desktop - Tablet */
 @media (max-width: 768px) {
-  .hero-section header {
-    display: none;
-  }
 }
+
+/* Tablet Size */
 @media (max-width: 640px) {
-  .hero-section header {
+  /* Desktop Elements (Hidden) */
+  header {
     display: none;
   }
+  .hero-image-wrapper-whole {
+    display: none;
+  }
+  /* ---- */
+
+  /* Mobile Elements (Display) */
+  
 }
 
 /* Mobile */
 @media (max-width: 475px) {
-  .hero-image-wrapper {
-    display: none;
-  }
-  .hero-title {
-    display: grid;
-  }
   .hero-title h1 {
     font-size: 50px;
   }
