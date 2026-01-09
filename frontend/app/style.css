@@ -1,19 +1,36 @@
 :root {
   scroll-behavior: smooth;
+  /* Scaleable text font calculator (Utopia) */
+  --step--2: clamp(1rem, 0.5rem + 1.0038vw, 1.2rem);
+  --step--1: clamp(1.25rem, 0.9543rem + 1.3143vw, 2.4rem);
+  --step-0: clamp(1.5rem, 1.1143rem + 1.7143vw, 3rem);
+  --step-1: clamp(1.8rem, 1.2986rem + 2.2286vw, 3.75rem);
+  --step-2: clamp(2.16rem, 1.5101rem + 2.8886vw, 4.6875rem);
+  --step-3: clamp(2.592rem, 1.7518rem + 3.7341vw, 5.8594rem);
+  --step-4: clamp(2.9rem, 2.0268rem + 4.8158vw, 6.3rem);
+  --step-5: clamp(3.7325rem, 2.338rem + 6.1975vw, 9.1553rem);
 }
 
-/* 
-section,
-div {
-  border: 1px solid red;
-} */
+/* Global setup for font adjustments */
+.title-org,
+.title-school-text {
+  line-height: 1.1; 
+  margin: 0;
+  font-size: var(--step-4);
+  font-weight: 700;
+}
 
-/* HERO SECTION */
 .hero-section {
   min-height: 100vh;
-  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
   display: grid;
-  place-items: center;
+  grid-template-rows: 15%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "left right";
 
   background-image: radial-gradient(
     1000px circle at center,
@@ -25,17 +42,16 @@ div {
   background-repeat: no-repeat;
 }
 
-/* HEADER FLOATING */
 header {
+  grid-area: header;
+  position: fixed;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  position: fixed;
-  z-index: 10;
   padding: 2rem 3rem;
-
-  width: 100%;
+  width: 100vw;
 }
 
 nav {
@@ -44,73 +60,72 @@ nav {
   align-items: center;
   gap: 2rem;
   background-color: #121639;
-  padding: 0.75rem 2rem;
-  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
 }
 
-/* HERO CONTENT WRAPPER */
-.hero-wrapper {
-  display: grid;
-  grid-template-columns: auto 30rem auto;
-  align-items: center;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 60px;
+nav a {
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1.15px;
 }
 
-/* LEFT TEXT */
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* Hero Left Wrapper*/
 .hero-title {
-  grid-column: 1;
+  grid-area: left;
   justify-self: center;
+  justify-items: center;
 
   display: flex;
   flex-direction: column;
+
   gap: 0.25em;
+  height: auto;
+  padding-top: 5%;
 }
 
-.title-org,
-.title-school {
-  line-height: 1.1; /* or 1.15 if you want more air */
-  margin: 0;
+/* Used on desktop */
+.hero-image-wrapper-whole {
+  grid-area: right;
+  justify-self: center;
+  max-width: 100%;
+  height: auto;
 }
 
 /* TITLES */
 .title-org {
-  font-size: 72px;
-  font-weight: 700;
   color: #df4c21;
+  max-width: 90%;
   -webkit-text-stroke: 2px #fea70a;
 }
-
-.title-school {
-  font-size: 72px;
-  font-weight: 700;
+.title-school-text {
   color: #007083;
   -webkit-text-stroke: 2px #b0f2fe;
 }
-
-/* TEXT */
 .hero-description {
-  font-weight: 600;
+  font-size: var(--step--2);
+  font-weight: 500;
   color: #e99806;
-  width: 350px;
+  max-width: 500px;
 }
-
 .hero-date {
-  font-size: 20px;
+  font-size: var(--step--2);
+  font-weight: 500;
   color: #00d0f3;
-}
-.hero-image-wrapper-whole {
-  grid-column: 3;
-  justify-self: center;
 }
 
 @media screen {
   /* Mobile Elements (Hidden) */
-  .hero-image-wrapper-parts {
-    display: none;
-  }
-  .vegas-sign {
+  .vegas-sign,
+  .red-diamond,
+  .orange-heart,
+  .orange-diamond,
+  .blue-ace {
     display: none;
   }
 }
@@ -132,28 +147,107 @@ nav {
 /* Tablet Size */
 @media (max-width: 640px) {
   /* Desktop Elements (Hidden) */
-  header {
-    display: none;
-  }
   .hero-image-wrapper-whole {
     display: none;
   }
-  /* ---- */
 
   /* Mobile Elements (Display) */
-  
+  .vegas-sign,
+  .red-diamond,
+  .orange-heart,
+  .orange-diamond,
+  .blue-ace {
+    display: block;
+  }
+
+  .hero-section {
+    grid-template-rows: 10%;
+  }
+
+  .hero-section {
+    grid-template-areas:
+      "header header"
+      "left left";
+  }
+
+  .title-school-logo-wrapper {
+    display: grid;
+    grid-template-areas:
+      "UNLV2026 VegasSign"
+      "RedDiamond VegasSign";
+
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .title-school-text {
+    grid-area: UNLV2026;
+  }
+
+  .vegas-sign {
+    grid-area: VegasSign;
+    grid-column: 3 / 1;
+    margin-left: 14%;
+    margin-right: 10%;
+  }
+  .red-diamond {
+    grid-area: RedDiamond;
+    grid-row: 3 / 1;
+    margin-top: 120%;
+  }
+  .orange-heart {
+    min-width: 100px;
+    min-height: 40px;
+
+    grid-area: heart;
+    align-self: end;
+    rotate: z 15deg;
+  }
+
+  .title-org-wrapper {
+    display: grid;
+    grid-template-areas: "title heart";
+  }
+  .title-org {
+    grid-area: title;
+  }
+
+  .description-date-wrapper {
+    display: grid;
+    grid-template-areas:
+      "description OrangeDiamond"
+      "date OrangeDiamond"
+      "BlueAce BlueAce";
+  }
+
+  .hero-description {
+    grid-area: description;
+    font-weight: 600;
+  }
+
+  .hero-date {
+    grid-area: date;
+    margin-top: 3%;
+    font-weight: 600;
+  }
+
+  .orange-diamond {
+    grid-area: OrangeDiamond;
+  }
+
+  .blue-ace {
+    grid-area: BlueAce;
+  }
 }
 
 /* Mobile */
-@media (max-width: 475px) {
-  .hero-title h1 {
-    font-size: 50px;
+@media (max-width: 486px) {
+  #home-link,
+  #about-link {
+    display: none;
   }
 
-  .hero-title p {
-    font-size: 10px;
+  .hero-section {
+    grid-template-rows: 10%;
   }
-}
-
-@media (max-width: 390px) {
 }
