@@ -71,17 +71,18 @@ export default function Home() {
           </header>
 
           <div className="hero-title">
-            <h1 className="title-org">REBEL</h1>
-            <h1 className="title-org">HACKS</h1>
-            <div className="wrapper">
-              <h1 className="title-school">UNLV 2026</h1>
+            <div className="title-org-wrapper">
+              <h1 className="title-org">REBEL HACKS</h1>
               <Image
-                className="vegas-sign"
-                src="/images/vegas-sign.png"
-                alt="Las Vegas Neon Sign"
-                width={300}
-                height={100}
-              />
+                className="orange-heart"
+                src="/images/org-heart.svg"
+                alt="orange heart"
+                width={120}
+                height={40}
+              ></Image>
+            </div>
+            <div className="title-school-logo-wrapper">
+              <h1 className="title-school-text">UNLV 2026</h1>
               <Image
                 className="red-diamond"
                 src="/images/red-diamond.svg"
@@ -89,14 +90,37 @@ export default function Home() {
                 width={100}
                 height={40}
               />
+
+              <Image
+                className="vegas-sign"
+                src="/images/vegas-sign.png"
+                alt="Las Vegas Neon Sign"
+                width={400}
+                height={120}
+              />
             </div>
+            <div className="description-date-wrapper">
+              <Image
+                className="orange-diamond"
+                src="/images/org-diamond.svg"
+                alt="orange diamond"
+                width={100}
+                height={40}
+              />
+              <p className="hero-description">
+                Come together to design, develop, and present projects that
+                tackle real-world problems!
+              </p>
 
-            <p className="hero-description">
-              Come together to design, develop, and present projects that tackle
-              real-world problems!
-            </p>
-
-            <p className="hero-date">FRI & SAT February 20–21, 2026</p>
+              <p className="hero-date">FRI & SAT February 20–21, 2026</p>
+              <Image
+                className="blue-ace"
+                src="/images/blue-ace.svg"
+                alt="blue ace"
+                width={100}
+                height={40}
+              />
+            </div>
           </div>
 
           <div className="hero-image-wrapper-whole">
